@@ -311,8 +311,32 @@ public class ArraySort<E> {
 	}
 
 	private void quickSort(E[] data, Comparator<? super E> c, int left, int right) {
-		E pivot = data[left];
+		int pivot = left;
+		int rightTemp = right;
 		E temp;
 
+		while(left < right){
+			while(c.compare(data[pivot], data[left]) < 0 && left < right){
+
+				if(c.compare(data[pivot],  data[right]) > 0){
+
+					temp = data[left];
+					data[left] = data[right];
+					data[right] = temp;
+				}
+				right --;
+			}
+			left ++;
+		}
+
+
+		if(left > pivot + 1){	
+			temp = data[left - 1];
+			data[left -1] = data[pivot];
+			data[pivot] = temp;
+
+			quickSort(data, c, pivot, left -2);
+			quickSort(data, c, left, rightTemp);
+		}
 	}
 }

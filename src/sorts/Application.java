@@ -12,7 +12,7 @@ public class Application {
 
     heapSortPrint(file0, file1, file2);
     mergeSortPrint(file0, file1, file2);
-//    quickSortPrint(file0, file1, file2);
+    quickSortPrint(file0, file1, file2);
 
   }
 
